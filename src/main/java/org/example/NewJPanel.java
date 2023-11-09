@@ -4,7 +4,6 @@
  */
 package org.example;
 
-import javax.swing.*;
 
 /**
  *
@@ -97,6 +96,7 @@ public class NewJPanel extends javax.swing.JPanel {
 
         selecionarButtonNao();
         esconderSpinners();
+        selecionarBaixos();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -347,6 +347,7 @@ public class NewJPanel extends javax.swing.JPanel {
 
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Defina o uso da máquina!");
+        jLabel3.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -607,6 +608,11 @@ public class NewJPanel extends javax.swing.JPanel {
         jSpinnerClients.setVisible(false);
 
     }
+    public void selecionarBaixos(){
+        jRadioButtonQ1res.setSelected(true);
+        jRadioButtonQ2baixo.setSelected(true);
+        jRadioButtonQ3baixo.setSelected(true);
+    }
 
     public void selecionarButtonNao(){
         jRadioButtonQ4nao.setSelected(true);
@@ -697,11 +703,13 @@ public class NewJPanel extends javax.swing.JPanel {
 
         if(!jRadioButtonQ12sim.isSelected() && !jRadioButtonQ12nao.isSelected()){
             javax.swing.JOptionPane.showMessageDialog(this,"DEFINA O USO DA MÁQUINA","ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
+            jLabel3.setVisible(true);
         }else{
+            jLabel3.setVisible(false);
             String categoria;
-            if (resultado() < 35){
+            if (resultado() <= 35){
                 categoria = "C";
-            }else if (resultado() > 35 && resultado() < 60){
+            }else if (resultado() > 35 && resultado() <= 60){
                 categoria = "B";
             }else{
                 categoria = "A";
@@ -810,7 +818,7 @@ public class NewJPanel extends javax.swing.JPanel {
         if(jRadioButtonQ12sim.isSelected()){
             resultado += 0;
         } else if (jRadioButtonQ12nao.isSelected()) {
-            resultado += 30;
+            resultado += 20;
         }
 
         return resultado;
