@@ -3,4 +3,3 @@ Archiver-Version: Plexus Archiver
 Created-By: Apache Maven 3.8.1
 Built-By: Dell_Suporte
 Build-Jdk: 16
-Main-Class: org.example.main
